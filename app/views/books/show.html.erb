@@ -1,1 +1,14 @@
 <h1>Books details</h1>
+<table>
+ <tbody>
+ <tr>
+  <td><%= image_tag @book.user.get_profile_image(50,50) %></td>     
+  <td><%= @book.title %></td>
+  <td><%= @book.body %></td>
+  <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-primary btn-sm mt-2 mb-2" %></td>
+  <% if @book.user == current_user %>
+  <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-primary btn-sm mt-2 mb-2", "data-confirm" => "本当に消しますか？" %></td>
+  <% end %>
+ </tr>
+ </tbody>
+</table>

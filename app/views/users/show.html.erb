@@ -1,4 +1,10 @@
 <h1>User info</h1>
+<% if @user.profile_image.attached? %>
+ <%= image_tag @user.profile_image, size: "200x200" %>
+<% else %>
+ <%= image_tag 'no_image', size: "200x200" %>
+<% end %>
+
 <table>
   <h3>name<%= @user.name %></h3>
   <h3>introduction<%= @user.introduction %></h3>
