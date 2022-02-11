@@ -1,13 +1,22 @@
-<h1>User info</h1>
-<% if @user.profile_image.attached? %>
- <%= image_tag @user.profile_image, size: "200x200" %>
-<% else %>
- <%= image_tag 'no_image', size: "200x200" %>
-<% end %>
+<div class = "container px-5 px-sm-0">
+ <div class = "row">
+  <div class = "col-md-3">
+   <h1>User info</h1>
+   <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image, size: "200x200" %>
+   <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+   <% end %>
 
-<table>
-  <h3>name<%= @user.name %></h3>
-  <h3>introduction<%= @user.introduction %></h3>
-</table>
+ 
+   <table>
+     <h3>name<%= @user.name %></h3>
+     <h3>introduction<%= @user.introduction %></h3>
+   </table>
 
-<%= link_to "edit", edit_user_path(@user.id) %>
+   <%= link_to "edit", edit_user_path(@user.id) %>
+
+   <%= render partial: 'books/form', locals: { book: @book } %>
+  </div>
+ </div>
+ </div>
