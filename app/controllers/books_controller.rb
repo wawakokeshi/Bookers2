@@ -1,45 +1,60 @@
 class BooksController < ApplicationController
+ before_action :correct_user, only: [:edit, :update]
 
-def new
-  @book = Book.new
-end
+ def index
+   @book = Book.new
+   @books = Book.all
+   @user = current_user
+ end
 
-def create
-  @book = Book.new(book_params)
-  @book.user_id = current_user.id
-  @book.save
-  redirect_to book_path(@book.id)
-end
+ def create
+   @book = Book.new(book_params)
+   @book.user_id = current_user.id
+   if @book.save
+    flash[:success] = 'You have created book successfully.'
+    redirect_to book_path(@book.id)
+   else
+    render :index
+   end
+ end
 
-def index
-  @books = Book.all
-end
+ def show
+   @user = current_user
+   @bookid = Book.find(params[:id])
+   @book = Book.new
+   @books = Book.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+ end
 
-def show
+ def destroy
+   bookid = Book.find(params[:id])
+   bookid.delete
+   redirect_to books_path
+ end
+
+ def edit
+   @book = Book.find(params[:id])
+ end
+
+ def update
+   book = Book.find(params[:id])
+   if book.update(book_params)
+    redirect_to book_path(book.id)
+    flash[:success] = 'You have updated book successfully.'
+   else
+    render :edit
+   end
+ end
+
+ private
+
+ def book_params
+  params.require(:book).permit(:title, :body)
+ end
+ 
+ def correct_user
   @book = Book.find(params[:id])
-end
+  @user = @book.user
+  redirect_to(books_path) unless @user == current_user
+ end
 
-def destroy
-  book = Book.find(params[:id])
-  book.delete
-  redirect_to books_path
 end
-
-def edit
-  @book = Book.find(params[:id])
-end
-
-def update
-  book = Book.find(params[:id])
-  book.update(book_params)
-  redirect_to book_path(book.id)
-end
-
-private
-
-def book_params
- params.permit(:title, :body)
-end
-end
-
-#.require(:book)

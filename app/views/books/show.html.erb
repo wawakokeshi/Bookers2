@@ -5,17 +5,20 @@
    <%= render 'form', book: @book %>
   </div>
   
-  <div class = "col-md-8 offset-md-1">
-   <h1>Books details</h1>
-    <table>
+  <div class = "mt-3 col-md-8 offset-md-1">
+   <h2>Books details</h2>
+    <table class = "table table-hover table-inverse">
      <tbody>
       <tr>
-       <td><%= image_tag @book.user.get_profile_image(50,50) %></td>     
-       <td><%= @book.title %></td>
-       <td><%= @book.body %></td>
-       <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-primary btn-sm mt-2 mb-2" %></td>
-       <% if @book.user == current_user %>
-       <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-primary btn-sm mt-2 mb-2", "data-confirm" => "本当に消しますか？" %></td>
+       <td>
+        <%= image_tag @bookid.user.get_profile_image(50,50) %><br>
+        <%= link_to @bookid.user.name, user_path(@user.id) %>
+       </td>     
+       <td><%= link_to @bookid.title, book_path(@bookid.id) %></td>
+       <td><%= @bookid.body %></td>
+       <% if @bookid.user == current_user %>
+       <td><%= link_to "Edit", edit_book_path(@bookid.id), class: "btn btn-success btn-sm mt-2 mb-2" %></td>
+       <td><%= link_to "Destroy", book_path(@bookid), method: :delete, class: "btn btn-danger btn-sm mt-2 mb-2", "data-confirm" => "本当に消しますか？" %></td>
        <% end %>
       </tr>
      </tbody>

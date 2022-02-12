@@ -50,11 +50,17 @@
       </li>
     <% end %>
     </header>
-   <main>
-   <%= yield %>
-   </main>
+   
+    <main> 
+     <% flash.each do |key, value| %>
+     <%= content_tag(:div, value, class: "#{key}") %>
+     <% end %>
+     <%= yield %>
+    </main>
+   </body>
+    
    <footer class="mx-auto">
     <p>CopyRight Infratop.inc</p>
-   </footer>
-  </body>
+  </footer>
+
 </html>
