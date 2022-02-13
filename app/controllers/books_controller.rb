@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
- before_action :correct_user, only: [:edit, :update]
 
  def index
    @book = Book.new
@@ -22,7 +21,7 @@ class BooksController < ApplicationController
    @user = current_user
    @bookid = Book.find(params[:id])
    @book = Book.new
-   @books = Book.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+   #@books = Book.where(user_id: current_user.id).includes(:user).order("created_at DESC")
  end
 
  def destroy
@@ -51,10 +50,4 @@ class BooksController < ApplicationController
   params.require(:book).permit(:title, :body)
  end
  
- def correct_user
-  @book = Book.find(params[:id])
-  @user = @book.user
-  redirect_to(books_path) unless @user == current_user
- end
-
 end
