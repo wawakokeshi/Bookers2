@@ -19,7 +19,7 @@
    </table>
   </h6>
   
-  <div class="mx-auto">
-   <%= link_to "edit", edit_user_path(user.id) %>
-  </div>
+  <%= link_to edit_user_path(user.id) do %>
+  <span class="btn btn-outline-secondary btn-block fas fa-user-cog" ></span>
+  <% end %>
   

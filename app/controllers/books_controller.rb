@@ -21,7 +21,6 @@ class BooksController < ApplicationController
    @user = current_user
    @bookid = Book.find(params[:id])
    @book = Book.new
-   #@books = Book.where(user_id: current_user.id).includes(:user).order("created_at DESC")
  end
 
  def destroy
