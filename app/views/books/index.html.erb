@@ -33,9 +33,11 @@
     <% @books.each do |book| %>
     <tr>
      <td>
+      <%# コメントアウトの部分は、モデルの定義（get_profile_image）がうまく機能しなくなった時のために念のため残し %>
       <%# p book.user %>
       <%# if book.user.profile_image.attached? %>
-      <%= image_tag book.user.get_profile_image(50,50) %>
+      <%= link_to image_tag(book.user.get_profile_image(50,50)), user_path(book.user.id) %>
+      <%#= image_tag book.user.get_profile_image(50,50) %>
       <%# else %>
       <%#= image_tag 'no_image.jpg' %>
       <%# end %>
