@@ -26,43 +26,43 @@
     <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to root_path, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-house-chimney" style="color :white"></span><b>Home</b><%#= link_to "Home", root_path, class: 'nav-link text-white' %>
+        <i class="fas fa-home" style="color :white"></i><b>Home</b><%#= link_to "Home", root_path, class: 'nav-link text-white' %>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to users_path, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-users" style="color :white"></span><b>Users</b><%#= link_to "Users", users_path, class: 'nav-link text-white' %>
+        <i class="fas fa-users" style="color :white"></i><b>Users</b><%#= link_to "Users", users_path, class: 'nav-link text-white' %>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to books_path, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-book-open" style="color :white"></span><b>Books</b><%#= link_to "Books", books_path, class: 'nav-link text-white' %>
+        <i class="fas fa-book-open" style="color :white"></i><b>Books</b><%#= link_to "Books", books_path, class: 'nav-link text-white' %>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-right-from-bracket" style="color :white"></span><b>Log out</b><%#= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+        <i class="fas fa-sign-out-alt" style="color :white"></i><b>Log out</b><%#= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
         <% end %>
       </li>
     <% else %>
       <li class= "nav-item">
         <%= link_to root_path , class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-house-chimney" style="color :white"></span><b>Home</b><%#= link_to "Home", root_path , class: 'nav-link text-white'%>
+        <i class="fas fa-home" style="color :white"></i><b>Home</b><%#= link_to "Home", root_path , class: 'nav-link text-white'%>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to about_path, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-link" style="color :white"></span><b>About</b><%#= link_to "About", about_path, class: 'nav-link text-white' %>
+        <i class="fas fa-link" style="color :white"></i><b>About</b><%#= link_to "About", about_path, class: 'nav-link text-white' %>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-user-plus" style="color :white"></span><b>Sign up</b><%#= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
+        <i class="fas fa-user-plus" style="color :white"></i><b>Sign up</b><%#= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
-        <span class="fa-solid fa-right-to-bracket" style="color :white"></span><b>Log in</b><%#= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
+        <i class="fas fa-sign-in-alt" style="color :white"></i><b>Log in</b><%#= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
         <% end %>
       </li>
     <% end %>

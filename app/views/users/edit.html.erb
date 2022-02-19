@@ -20,7 +20,7 @@
      <label for="inputImage">Image</label>
      <p><%= f.file_field :profile_image, accept: "image/*" %></p>
      <label for="inputIntroduction">Introduction</label>
-     <p><%= f.text_field :introduction, id:"introduction" %></p>
+     <p><%= f.text_area :introduction, id:"introduction" %></p>
     <%= f.submit "Update User", class: "btn btn-secondary btn-sm mt-2 mb-2"%>
     <% end %>
   </div>
